@@ -1,0 +1,153 @@
+
+
+local Library =
+            loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+        local Window = Library.CreateLib("Legend HandlesYT | Project New World", "BloodTheme")
+
+        -- MAIN
+        local Main = Window:NewTab("Main")
+        local MainSection = Main:NewSection("Free-Gamepasses")
+
+         local Cred = Window:NewTab("Credits")
+        local CredSection = Cred:NewSection("Credits")
+
+
+MainSection:NewToggle("VIP Gamepass", "Get VIP Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.VIP.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.VIP.Value = false
+  end
+end)
+
+
+MainSection:NewToggle("FruitBag Gamepass", "Get FruitBag Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.FruitBag.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.FruitBag.Value = false
+  end
+end)
+
+MainSection:NewToggle("FruitNotifier Gamepass", "Get FruitNotifier Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.FruitNotifier.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.FruitNotifier.Value = false
+  end
+end)
+
+
+MainSection:NewToggle("X2Mastery Gamepass", "Get X2Mastery Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.X2Mastery.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.X2Mastery.Value = false
+  end
+end)
+
+MainSection:NewToggle("HakiColorGP Gamepass", "Get HakiColorGP Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.HakiColorGP.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.HakiColorGP.Value = false
+  end
+end)
+
+MainSection:NewToggle("IncreasedDropChance Gamepass", "Get IncreasedDropChance Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.IncreasedDropChance.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.IncreasedDropChance.Value = false
+  end
+end)
+
+MainSection:NewToggle("StrikerBoat Gamepass", "Get StrikerBoat Gamepass For Free", function(state)
+ if state then
+  game:GetService("Players").LocalPlayer.GamepassesOwn.StrikerBoat.Value = true
+else
+  game:GetService("Players").LocalPlayer.GamepassesOwn.StrikerBoat.Value = false
+  end
+end)
+
+MainSection:NewLabel("Main")
+
+
+MainSection:NewButton("Infinite Spins", "Infinite Spins", function()
+    while true do
+  game:GetService("Players").LocalPlayer.PlayerGui.StartMenu.MainFrame.LeftSide.Race.Main.Holder.Misc.SpinHolder.Main.Wrapper.Spins.Text = "SPINS: 1000000000000000"
+
+wait(0)
+end
+end)
+
+MainSection:NewToggle("Kill Aura (Only Combat)", "Instant Punch", function(Value)
+   a = Value
+        while a do task.wait()
+        pcall(function()
+local args = {
+    [1] = 1
+}
+
+game:GetService("Players").LocalPlayer.Character.Combat.Punch:FireServer(unpack(args))
+        end)
+        end
+end)
+
+
+
+
+MainSection:NewButton("Infinite Stamina", "Infinite Stamina", function()
+game.Players.LocalPlayer.Character.TakeStamina:Destroy()
+end)
+
+MainSection:NewButton("Auto Collect Chests", "Infinite Stamina", function()
+loadstring(game:HttpGet("https://srilol.tk"))()
+
+end)
+
+
+MainSection:NewButton("Teleport To Spawn", "Teleport Player To Spawn", function()
+game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(-2242.74097, 14.0250521, -3261.64209, 0.418485045, 1.93148653e-09, 0.908223689, -4.55177478e-08, 1, 1.88466895e-08, -0.908223689, -4.92273529e-08, 0.418485045)
+end)
+
+
+
+MainSection:NewToggle("Infinite Jump", "Infinite Jump", function(state)
+  if state then
+_G.infinjump = true
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+Mouse.KeyDown:connect(function(k)
+if _G.infinjump then
+if k:byte() == 32 then
+Humanoid = game:GetService("Players").LocalPlayer.Character:FindFirstChildOfClass("Humanoid")
+Humanoid:ChangeState("Jumping")
+wait(0.1)
+Humanoid:ChangeState("Seated")
+end
+end
+end)
+local Player = game:GetService("Players").LocalPlayer
+local Mouse = Player:GetMouse()
+    else
+if _G.infinjump == true then
+_G.infinjump = false
+else
+_G.infinjump = true
+end
+end
+            
+end)
+
+
+MainSection:NewSlider("Walkspeed", "Increase Players Speed", 300, 16, function(s) -- 500 (MaxValue) | 0 (MinValue)
+    getgenv().WalkSpeedValue = (s); --set your desired walkspeed here
+local Player = game:service'Players'.LocalPlayer;
+Player.Character.Humanoid:GetPropertyChangedSignal'WalkSpeed':Connect(function()
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+Player.Character.Humanoid.WalkSpeed = getgenv().WalkSpeedValue;
+end)
+CredSection:NewLabel("Made By: Legend Handles")
+
